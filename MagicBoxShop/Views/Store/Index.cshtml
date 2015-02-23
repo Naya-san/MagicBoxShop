@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MagicBoxShop.Models.Subcategory>
+@{
+    ViewBag.Title = "Товары";
+}
+<h3>Список категорий</h3>
+
+<ul>
+    @foreach (var ev in Model)
+    {
+        <li>@Html.ActionLink(ev.Name, "Browse", new { id = ev.SubcategoryId})</li>
+    }
+</ul>

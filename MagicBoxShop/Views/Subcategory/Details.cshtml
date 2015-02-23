@@ -1,0 +1,40 @@
+﻿@model MagicBoxShop.Models.Subcategory
+
+@{
+    ViewBag.Title = "Подробно";
+}
+
+<h2>Подробнее</h2>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name):
+    </div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Name)
+</div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Question):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Question)
+    </div>
+    
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RootCategory):
+    </div>
+    <div class="display-field">
+         <a href="@Url.Action("Details", "Category", new { id = Model.RootCategory.CategoryId })" class="mp-back"> @Html.DisplayFor(model => model.RootCategory.Name)</a>
+    </div>
+     <div class="display-label">
+         Содержит товаров:
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Products.Count)
+        @Html.ActionLink("Просмотреть", "IndexConcrete", "StoreManager", new {id = Model.SubcategoryId, isCategory = false}, new {@class = "mp-back"})
+    </div>
+<p>
+     @if (!Model.Name.Equals("Разное"))
+    {
+        @Html.ActionLink("Редактировать", "Edit", new { id=Model.SubcategoryId }, new {@class = "mp-back"}) <b>|</b>
+    }
+    @Html.ActionLink("Назад", "Index", new {}, new {@class = "mp-back"})
+</p>

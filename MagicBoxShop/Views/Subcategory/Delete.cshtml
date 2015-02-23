@@ -1,0 +1,19 @@
+﻿@model MagicBoxShop.Models.Subcategory
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>Удаление подкатегории</h2>
+
+<p>Вы уверены, что хотите удалить 
+    <strong>@Model.Name</strong>?
+</p>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Удалить" />
+    </p>
+}
+<p> @Html.ActionLink("Назад", "Index", new {}, new {@class = "mp-back"})</p>

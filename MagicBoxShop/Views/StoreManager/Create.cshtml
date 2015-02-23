@@ -1,0 +1,79 @@
+﻿@model MagicBoxShop.Models.Product
+@{
+    ViewBag.Title = "Добавить";
+}
+
+<h2>Создание подарка</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/HelpfullFunctions.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Create", "StoreManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name, "Название")
+        </div>                
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        
+        <div class="editor-label">
+            Положение в каталоге:
+        </div>
+        <div class="editor-field">
+            @{ List<string> listN = new List<string>(); }
+            @foreach (var c in (List<MagicBoxShop.Models.Category>)Session["categoryList"])
+            {
+                if (c.Subcategories.Count > 0)
+                {
+                    <fieldset>
+                        <legend>@c.Name</legend>
+                        @foreach (var sc in c.Subcategories){
+                            <p><input type="checkbox" name="s @sc.SubcategoryId">@sc.Name</p>
+                            listN.Add("s " + @sc.SubcategoryId);
+                        }
+                    </fieldset>
+                }
+                Session.Add("ListOfTags", listN);
+            }
+           </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price, "Цена")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+        
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Description, "Описание")
+        </div>
+
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Description, new { style = "width:300px ;height:100px" })
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quantity, "Количество")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+        <div class="editor-field">
+            <table id="images"  class = "testTable">	
+				<tr>		
+					<td colspan="2" ><input type="button" name="Button1" value="Добавить изображение" onclick="onPush()" class="m-btn" align="left"></td>
+				</tr>				
+			</table>
+        </div>
+        <input type="submit" value="Готово" />
+}
+
+<div>
+    @Html.ActionLink("Назад", "Index")
+</div>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" 
+          type="text/css" />
+    <link href="@Url.Content("~/Content/modern-buttons/css/m-buttons.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/modern-buttons/css/m-icons.css")" rel="stylesheet">
+   <link rel= "icon" href= "/content/Images/favicon1.ico" type= "ico" > 
+</head>
+<body>
+    <div id="header">
+         <a href="/"><img src="/content/Images/magikBoxHead.png" height="150" alt="MagicBox" align ="left"></a>
+        <div class="m-btn-group">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <h2> Здравствуйте, @User.Identity.Name.Trim()!   
+                </h2>
+                if (@Roles.IsUserInRole("User"))
+                {
+                    @Html.ActionLink("История заказов", "PersonalOrders", "Order", new {}, new {@class = "m-btn purple-stripe"})
+                }
+            }
+           @if (@Roles.IsUserInRole("Admin"))
+            {
+                <a href="@Url.Content("~/StoreManager/")" class="m-btn purple-stripe">Каталог</a>
+            }
+            else
+            {
+               <a href="@Url.Content("~/Adviser/")" class="m-btn purple-stripe">Помощник</a>  
+               <div class="m-btn purple-stripe">@{Html.RenderAction("CartSummary", "ShoppingCart");}</div>
+            }
+           @Html.ActionLink("Контакты", "Contact", "Home", new { }, new {@class="m-btn purple-stripe"})
+           @if (User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Выход", "LogOff", "Account", new { }, new {@class="m-btn purple-stripe"})
+            }
+            else
+           {
+                <a href="@Url.Content("~/Account/LogOn/")" class="m-btn purple-stripe">Войти на сайт</a>
+           }
+        </div>
+              
+    </div>
+
+    @{Html.RenderAction("Menu", "Store");}
+
+    <div id="main">
+        @RenderBody()
+    </div>
+
+    <div id="footer">
+        © Магазин подарков "Magic-box.com.ua"
+    </div>
+</body>
+</html>

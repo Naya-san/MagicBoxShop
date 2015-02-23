@@ -1,0 +1,22 @@
+﻿@model MagicBoxShop.Models.Comment
+
+@{
+    ViewBag.Title = "Подтверждение";
+}
+
+<h2>Подтверждение комментария</h2>
+
+<p>Вы уверены, что хотите добавить этот комментарий?</p>
+<div id="comment">
+    <div id="athor">@Model.Name</div>
+    <div id="text">@Model.Text</div>
+</div>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Отметить" />
+   </p>
+}
+    <p>
+        @Html.ActionLink("Назад", "Index", new { }, new {@class="mp-back"})
+    </p>

@@ -1,0 +1,92 @@
+﻿@model MagicBoxShop.Models.Order
+
+@{
+    ViewBag.Title = "Подробно";
+}
+
+<h2>Подробности заказа</h2>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderId)
+    </div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.OrderId)
+</div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderDate)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FamilyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FamilyName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phone)
+    </div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Phone)
+</div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+<div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+<div class="display-label">
+         @Html.DisplayNameFor(model => model.Status)
+    </div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Status)
+</div>
+<table>
+    <tr>
+        <th>
+            Товар
+        </th>
+        <th>
+            Количество
+        </th>
+        <th>
+            Цена за единицу
+        </th>
+    </tr>
+
+@foreach (var item in Model.OrderDetails) {
+    <tr>
+        <td>
+             <a href="@Url.Action("Details", "StoreManager", new { id = item.Product.ProductId })" class="mp-back"> @Html.DisplayFor(modelItem => item.Product.Name)</a>
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice) грн.
+        </td>
+    </tr>
+}
+<tr>		
+    <td colspan="2" >Всего</td>
+    <td>@Model.Total  грн.</td>
+</tr>	
+
+</table>
+<p>
+    @if (Model.Status.Equals("Необработанный") || Model.Status.Equals("Обработанный"))
+    {
+            @Html.ActionLink("Сменить статус", "Edit", new { id=Model.OrderId }, new {@class = "mp-back"}) <b>|</b>
+    }
+    <a href="javascript:history.go(-1)" class="mp-back">Назад</a> 
+</p>

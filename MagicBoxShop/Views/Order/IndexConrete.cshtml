@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MagicBoxShop.Models.Order>
+
+@{
+    ViewBag.Title = "Заказ";
+}
+
+@Html.ActionLink("Все заказы", "Index") |  @Html.ActionLink("Необработанные", "IndexConrite", "Order" ,new {status="Необработанный"}, new {@class = "mp-back"}) |
+@Html.ActionLink("Обработанные", "IndexConrite", "Order" ,new {status="Обработанный"}, new {@class = "mp-back"}) | @Html.ActionLink("Выполненные", "IndexConrite", "Order" ,new {status="Выполненный"}, new {@class = "mp-back"}) |
+@Html.ActionLink("Отмененные", "IndexConrite", "Order" ,new {status="Отменен"}, new {@class = "mp-back"})
+
+<h2>Заказы со статусом @ViewBag.Status</h2>
+@if (Model.Count() > 0)
+{
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+        
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+
+                <td>
+                    @if (item.Status.Equals("Необработанный") || item.Status.Equals("Обработанный"))
+                    {
+                        @Html.ActionLink("Сменить статус", "Edit", new {id = item.OrderId})
+                        <b>|</b>
+                    }
+                    @Html.ActionLink("Подробнее", "Details", new {id = item.OrderId}, new {@class = "mp-back"})
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <em> Заказов с таким статусом нет. </em>
+}

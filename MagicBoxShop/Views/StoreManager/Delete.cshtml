@@ -1,0 +1,21 @@
+﻿@model MagicBoxShop.Models.Product
+
+@{
+    ViewBag.Title = "Удаление";
+}
+
+<h2>Удаление товара</h2>
+
+<p>Вы уверены, что хотите удалить 
+   <strong>@Model.Name</strong>?
+</p>
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Удалить" />
+    </p>
+    <p>
+        @Html.ActionLink("Назад", "Index", new {}, new {@class = "mp-back"})
+    </p>
+
+}

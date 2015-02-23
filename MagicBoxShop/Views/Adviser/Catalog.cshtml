@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Catalog";
+}
+
+
+
+<h2>Подборка подарков</h2>
+
+@using MagicBoxShop
+@model MagicBoxShop.Models.PageableData<MagicBoxShop.ViewModels.ProductFrequency>
+@{
+    ViewBag.Title = "Список подарков";
+}
+
+<div>
+    Сортировать по соответствию образу адресата
+    <a href="@Url.Action("Catalog", "Adviser", new {page = 1, itemPerPage = @Model.ItemPerPage, sorte = 2})"><i class="m-icon-swapdown"></i></a>
+
+    &nbsp 
+    Сортировать по цене
+    <a href="@Url.Action("Catalog", "Adviser", new {page = 1, itemPerPage = @Model.ItemPerPage, sort= 0})"><i class="m-icon-swapup"></i></a>
+    <a href="@Url.Action("Catalog", "Adviser", new {page = 1, itemPerPage = @Model.ItemPerPage, sort = 1})"><i class="m-icon-swapdown"></i></a>
+
+    <span>На странице:</span>
+    <div class="m-btn-group">
+        <a class="m-btn dropdown-toggle mini" data-toggle="dropdown" href="#">
+            @Model.ItemPerPage <span class="caret"></span>
+        </a>
+        <ul class="m-dropdown-menu">
+            <li><a href="@Url.Action("Catalog", new {page = 1, itemPerPage = 5, sort = @ViewBag.sortType})" >5</a></li>
+            <li><a href="@Url.Action("Catalog", new {page = 1, itemPerPage = 10, sort = @ViewBag.sortType})" >10</a></li>
+            <li><a href="@Url.Action("Catalog", new {page = 1, itemPerPage = 20, sort = @ViewBag.sortType})" >20</a></li>
+            <li><a href="@Url.Action("Catalog", new {page = 1, itemPerPage = 50, sort = @ViewBag.sortType})" >50</a></li>
+            <li><a href="@Url.Action("Catalog", new {page = 1, itemPerPage = 100, sort = @ViewBag.sortType})" >100</a></li>
+        </ul>
+        @Html.PageLinks(Model.PageNo, Model.CountPage, x => Url.Action("Catalog", new {page = x, itemPerPage = Model.ItemPerPage, sort = @ViewBag.sortType}))
+    </div>
+    <ul id="album-list">
+        @foreach (var product in Model.List)
+        {
+            <li>
+                <a href="@Url.Action("Details", "Store", new { id = product.productCore.ProductId }, null)">
+                    <img height="100" width="130" alt="@product.productCore.Name" src="@(Path.Combine(product.productCore.ArtUrl, (new DirectoryInfo(Server.MapPath(product.productCore.ArtUrl))).GetFiles("*.jpg")[0].Name))"/>
+                    <span>@product.productCore.Name</span>
+                </a>
+                <div class="display-field">@product.productCore.Price грн.</div>
+            </li>
+        }
+    </ul>
+    <div class="m-btn-group">
+       @Html.PageLinks(Model.PageNo, Model.CountPage, x => Url.Action("Catalog", new {page = x, itemPerPage = Model.ItemPerPage, sort = @ViewBag.sortType}))
+    </div>
+</div>

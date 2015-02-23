@@ -1,0 +1,76 @@
+﻿@model MagicBoxShop.Models.Product
+@{
+    ViewBag.Title = Model.Name;
+}
+<link href="@Url.Content("~/Content/gallery.css")" rel="stylesheet" 
+      type="text/css" />
+<script src="@Url.Content("~/Scripts/todo.js")" 
+        type="text/javascript"></script>
+<script type="text/javascript">
+    todo.onload(function(){
+        todo.gallery('gallery');
+    });
+</script>
+
+<link href="@Url.Content("~/Content/Tabs.css")" rel="stylesheet" 
+      type="text/css" />
+<script src="@Url.Content("~/Scripts/Tabs.js")" 
+        type="text/javascript"></script>
+<h2>@Model.Name</h2>
+<!-- Сами вкладки -->
+<ul id="Tabs">
+	<li id="TwoTab" class="Tab"><a href="#Two" onclick="Two(); return false;">Отзывы</a></li>
+	<li id="OneTab" class="SelectedTab"><a href="#One" onclick="One(); return false;">Характеристики</a></li>
+</ul>
+<!-- Содержимое вкладок -->
+<div id="Content">
+	<!-- Первая -->
+	<div id="One">
+        @using (Html.BeginForm())
+        {
+            <ul id="detail-list">
+                @foreach (var img in ViewBag.ListImg)
+                {
+                    <li>
+                        <a title="@Model.Name" rel="gallery[myphoto]" href="@img"><img alt="@Model.Name" src="@img" height="150"> </a>    
+                    </li>
+                }
+            </ul>
+
+            <div id="album-details">
+                <p>
+                    <em>Цена:</em>
+                    @String.Format("{0:F}", Model.Price)
+                </p>
+                <p>
+                    <em>Описание:</em>
+                    @Model.Description
+                </p>
+
+                @if (Model.Quantity > 0)
+                {               
+                 <div>
+                    <input type="number" name="count" value="1" size="3" min="1" max="@Model.Quantity" />
+                </div>
+                    <div>
+                        <input type="submit" value="Добавить в корзину" />
+                    </div>
+                }
+                else
+                {
+                    <em>Товара нет в наличии</em>
+                }
+                <a href="javascript:history.go(-1)" class="mp-back">Назад</a>
+
+            </div>
+        }
+    </div>
+</div>
+ 
+	<!-- Вторая -->
+    <div id="Two" style="display: none;">
+        <h3>Добавить свой комментарий </h3><em>(Комментарий появится на странице после модерации)</em>
+        @{Html.RenderAction("Create", "Comment", new {id = Model.ProductId});}
+        @{Html.RenderAction("Browse", "Comment", new {id = Model.ProductId});}
+    </div>
+</div>

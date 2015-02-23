@@ -1,0 +1,28 @@
+﻿@model MagicBoxShop.Models.Category
+
+@{
+    ViewBag.Title = "Редактировать";
+}
+
+<h2>Редактирование категории</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+}
+
+<div>
+    @Html.ActionLink("Назад", "Index", new {}, new {@class = "mp-back"})
+</div>

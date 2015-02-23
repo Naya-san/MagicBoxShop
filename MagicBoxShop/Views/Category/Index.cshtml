@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MagicBoxShop.Models.Category>
+
+@{
+    ViewBag.Title = "Категории";
+}
+
+<h2>Список категорий</h2>
+
+<p>
+    @Html.ActionLink("Создать новую", "Create", new {}, new {@class = "mp-back"})
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @if(item.Name != "Разное")
+            {
+                @Html.ActionLink("Отредактировать", "Edit", new {id = item.CategoryId}, new {@class = "mp-back"})
+                <b>|</b>
+            }
+            @Html.ActionLink("Подробнее", "Details", new { id=item.CategoryId }, new {@class = "mp-back"})
+            @if(item.Name != "Разное")
+            {
+                <b>|</b>
+                @Html.ActionLink("Удалить", "Delete", new { id=item.CategoryId }, new {@class = "mp-back"})
+            }
+            
+        </td>
+    </tr>
+}
+
+</table>

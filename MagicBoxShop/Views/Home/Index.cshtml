@@ -1,0 +1,22 @@
+﻿@using MagicBoxShop
+@model MagicBoxShop.Models.PageableData<MagicBoxShop.Models.Product>
+@{
+    ViewBag.Title = "MagicBox";
+}
+
+<h3> Добро пожаловать! </h3>
+<h3><em>Лучшие</em> подарки</h3>
+
+<ul id="album-list">
+
+    @foreach (var product in Model.List)
+    {
+        <li><a href="@Url.Action("Details", "Store",
+                                 new { id = product.ProductId })">
+                <img height="100" width="130" alt="@product.Name" src="@(Path.Combine(product.ArtUrl, (new DirectoryInfo(Server.MapPath(product.ArtUrl))).GetFiles("*.jpg")[0].Name))"/>
+                <span>@product.Name</span> </a>
+                <span>@product.Price грн.</span>
+        </li>
+    }
+
+</ul>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MagicBoxShop.Models.Subcategory>
+
+@{
+    ViewBag.Title = "Подкатегории";
+}
+
+<h2>Подкатегории</h2>
+@if(Model.Count()>0)
+{
+      @Html.ActionLink("Создать подкатегорию", "Concrete", "Subcategory", new {categoryId = Model.First().RootCategory.CategoryId}, new {@class = "mp-back"})
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RootCategory)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.RootCategory.Name)
+                </td>
+                <td>
+                    @if (!item.Name.Equals("Разное"))
+                    {
+                        @Html.ActionLink("Редактировать", "Edit", new { id=item.SubcategoryId }, new {@class = "mp-back"}) <b>|</b>
+                        @Html.ActionLink("Подробнее", "Details", new { id=item.SubcategoryId }, new {@class = "mp-back"}) <b>|</b>
+                        @Html.ActionLink("Удалить", "Delete", new { id=item.SubcategoryId }, new {@class = "mp-back"})
+                    }else
+                    {
+                         @Html.ActionLink("Подробнее", "Details", new { id=item.SubcategoryId }, new {@class = "mp-back"})
+                    }
+            
+                </td>
+            </tr>
+        }
+
+        </table>
+}else
+{
+    <em>Список подкатегорий пуст</em>
+}
+

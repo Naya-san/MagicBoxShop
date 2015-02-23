@@ -1,0 +1,66 @@
+﻿<RecentFiles>
+  <RecentFiles>
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:CommentController.cs" caret="3981" fromTop="14" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:OrderDetails.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:PageableData.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:PresentsEntities.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:Product.cs" caret="878" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:SampleData.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:ShoppingCart.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:Subcategory.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:AccountModels.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:Cart.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:Category.cs" caret="285" fromTop="11" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:Comment.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:HomeController.cs" caret="637" fromTop="20" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:SubcategoryController.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:StoreController.cs" caret="2015" fromTop="39" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:ShoppingCartController.cs" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:ShoppingCart/f:CartSummary.cshtml" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Order/f:IndexConrete.cshtml" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Order/f:Index.cshtml" caret="804" fromTop="18" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Order/f:Edit.cshtml" caret="763" fromTop="5" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Order/f:Details.cshtml" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:ShoppingCart/f:Index.cshtml" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Home/f:Index.cshtml" caret="710" fromTop="22" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:StoreManager/f:Create.cshtml" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Shared/f:_Layout.cshtml" caret="913" fromTop="11" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:StoreManager/f:Index.cshtml" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Order/f:PersonalOrders.cshtml" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Comment/f:Delete.cshtml" caret="0" fromTop="0" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:OrderController.cs" caret="4274" fromTop="24" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Models/f:Order.cs" caret="542" fromTop="7" />
+  </RecentFiles>
+  <RecentEdits>
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Category/f:Delete.cshtml" caret="293" fromTop="9" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Subcategory/f:Delete.cshtml" caret="307" fromTop="8" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Comment/f:Delete.cshtml" caret="454" fromTop="14" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Comment/f:Details.cshtml" caret="549" fromTop="13" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Store/f:Index.cshtml" caret="241" fromTop="9" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Comment/f:Index.cshtml" caret="1643" fromTop="11" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Order/f:IndexConrete.cshtml" caret="2171" fromTop="13" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:ShoppingCart/f:Index.cshtml" caret="4422" fromTop="4" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Content/d:modern-buttons/d:css/f:m-icons.css" caret="9232" fromTop="23" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:CategoryController.cs" caret="4082" fromTop="16" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:CommentController.cs" caret="3878" fromTop="12" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:SubcategoryController.cs" caret="5845" fromTop="5" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:StoreManager/f:Create.cshtml" caret="2212" fromTop="9" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Shared/f:_Layout.cshtml" caret="744" fromTop="16" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Comment/f:Browse.cshtml" caret="256" fromTop="12" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Comment/f:Create.cshtml" caret="260" fromTop="6" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Store/f:Browse.cshtml" caret="430" fromTop="14" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:StoreController.cs" caret="919" fromTop="14" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:StoreManagerController.cs" caret="2727" fromTop="15" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Content/f:component.css" caret="742" fromTop="9" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:StoreManager/f:Details.cshtml" caret="1801" fromTop="12" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Store/f:Details.cshtml" caret="1216" fromTop="10" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Content/f:Site.css" caret="1623" fromTop="14" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:OrderController.cs" caret="492" fromTop="11" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Order/f:Index.cshtml" caret="2138" fromTop="10" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:HomeController.cs" caret="550" fromTop="17" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:Home/f:Index.cshtml" caret="155" fromTop="6" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:StoreManager/f:Index.cshtml" caret="3084" fromTop="11" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Views/d:StoreManager/f:IndexConcrete.cshtml" caret="3708" fromTop="15" />
+    <File id="E4B94C66-CEF6-4A92-81BD-D4D8765F8881/d:Controllers/f:AdviserController.cs" caret="1635" fromTop="15" />
+  </RecentEdits>
+</RecentFiles>

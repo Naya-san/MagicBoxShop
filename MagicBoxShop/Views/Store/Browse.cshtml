@@ -1,0 +1,53 @@
+﻿@using MagicBoxShop
+
+@model MagicBoxShop.Models.PageableData<MagicBoxShop.Models.Product>
+@{
+    ViewBag.Title = "Список подарков";
+}
+
+<script src="@Url.Content("~/Content/modern-buttons/js/jquery-1.8.0.min.js")" 
+           type="text/javascript"></script>
+ <script src="@Url.Content("~/Content/modern-buttons/js/m-dropdown.min.js")"
+    type="text/javascript"></script>
+
+<div>
+    <div class="album-head">
+        <h2> @ViewBag.categoryName </h2>
+        <div class="sort-head">
+            Сортировать по цене
+            <a href="@Url.Action("Browse", "Store", new { id = @ViewBag.categoryId, isCategory = @ViewBag.IsCategory, page = 1, itemPerPage = @Model.ItemPerPage, sort = 0})"><i class="m-icon-swapup"></i></a>
+            <a href="@Url.Action("Browse", "Store", new { id = @ViewBag.categoryId, isCategory = @ViewBag.IsCategory, page = 1, itemPerPage = @Model.ItemPerPage, sort = 1})"><i class="m-icon-swapdown"></i></a>
+        </div>   
+        <div align="right" background="red">
+            На странице:
+            <div class="m-btn-group">
+                <a class="m-btn dropdown-toggle mini" data-toggle="dropdown" href="#">
+                    @Model.ItemPerPage <span class="caret"></span>
+                </a>
+                <ul class="m-dropdown-menu">
+                    <li><a href="@Url.Action("Browse", new {id = @ViewBag.categoryId, isCategory = @ViewBag.IsCategory,  page = 1, itemPerPage = 5, sort = @ViewBag.sort})" >5</a></li>
+                    <li><a href="@Url.Action("Browse", new {id = @ViewBag.categoryId, isCategory = @ViewBag.IsCategory,  page = 1, itemPerPage = 10, sort = @ViewBag.sort})" >10</a></li>
+                    <li><a href="@Url.Action("Browse", new {id = @ViewBag.categoryId, isCategory = @ViewBag.IsCategory,  page = 1, itemPerPage = 20, sort = @ViewBag.sort})" >20</a></li>
+                    <li><a href="@Url.Action("Browse", new {id = @ViewBag.categoryId, isCategory = @ViewBag.IsCategory, page = 1, itemPerPage = 50, sort = @ViewBag.sort})" >50</a></li>
+                    <li><a href="@Url.Action("Browse", new {id = @ViewBag.categoryId, isCategory = @ViewBag.IsCategory,  page = 1, itemPerPage = 100, sort = @ViewBag.sort})" >100</a></li>
+                </ul>
+                @Html.PageLinks(Model.PageNo, Model.CountPage, x => Url.Action("Browse", new {id = @ViewBag.categoryId, isCategory = @ViewBag.IsCategory, page = x, itemPerPage = Model.ItemPerPage, sort = @ViewBag.sort}))
+            </div>
+        </div>
+    </div>
+    <ul id="album-list">
+        @foreach (var product in Model.List)
+        {
+            <li>
+                <a href="@Url.Action("Details", new { id = product.ProductId })">
+                    <img height="100" width="130" alt="@product.Name" src="@(Path.Combine(product.ArtUrl, (new DirectoryInfo(Server.MapPath(product.ArtUrl))).GetFiles("*.jpg")[0].Name))"/>
+                    <span>@product.Name</span>
+                </a>
+                <div class="display-field">@product.Price грн.</div>
+            </li>
+        }
+    </ul>
+    <div class="m-btn-group">
+        @Html.PageLinks(Model.PageNo, Model.CountPage, x => Url.Action("Browse", new { id = @ViewBag.categoryId, page = x, itemPerPage = Model.ItemPerPage, sort = @ViewBag.sort }))
+    </div>
+</div>

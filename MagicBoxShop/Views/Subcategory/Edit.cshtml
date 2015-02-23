@@ -1,0 +1,55 @@
+﻿@model MagicBoxShop.Models.Subcategory
+
+@{
+    ViewBag.Title = "Рдеактирование";
+}
+
+<h2>Редактирование подкатегории</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+       <div class="editor-label">
+            @Html.LabelFor(model => model.Question)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Question)
+            @Html.ValidationMessageFor(model => model.Question)
+        </div>
+         <div class="editor-label">
+           Родительская категория
+        </div>
+        <div class="editor-field">
+            <select name="InRootCategory" >
+                @foreach (var c in (List<MagicBoxShop.Models.Category>)Session["categoryListForCreate"])
+                {
+                    if(c.CategoryId == Model.RootCategory.CategoryId)
+                    {
+                        <option selected value="@c.CategoryId" >@c.Name </option>
+                    }else
+                    {
+                        <option value="@c.CategoryId" >@c.Name </option>
+                    }
+                    
+                }
+            </select>
+        </div>
+
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+}
+
+<div>
+    <p>
+    @Html.ActionLink("Назад", "Index", new {}, new {@class = "mp-back"})
+    </p>
+</div>

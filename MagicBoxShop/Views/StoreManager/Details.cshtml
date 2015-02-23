@@ -1,0 +1,69 @@
+﻿@model MagicBoxShop.Models.Product
+
+@{
+    ViewBag.Title = "Подробно";
+}
+
+<h2>Информация о подарке</h2>
+
+    <div class="display-label">Название</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Цена</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+    
+    <div class="display-label">Количество</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantity)
+    </div>
+    <div class="display-label">Продано единиц товара</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Popularity)
+    </div>
+    <div class="display-label">Описание</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Description)
+</div>
+
+    <div class="display-label">Расположение в меню</div>
+<div class="display-field">
+    @if(Model.Subcategories.Count >0){
+        foreach (var sub in  Model.Subcategories)
+        {
+            <a href="@Url.Action("Details", "Category", new { id = sub.RootCategory.CategoryId})"> @sub.RootCategory.Name</a> <b>></b> <a href="@Url.Action("Details", "Subcategory", new { id = sub.SubcategoryId })"> @sub.Name</a><br>
+        }
+    }
+
+
+</div>
+
+
+<div class="display-label">В магазине в продаже с </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateCreated)
+    </div>
+
+
+    <div class="display-label">Изображения</div>
+    <div class="display-field">
+         @foreach (var img in ViewBag.ListImg)
+         {
+            
+             <p>
+                  
+                 <img alt="@Model.Name" src="@img"  height="200"/>    
+             </p>
+             
+         }
+
+    </div>
+<div class="det-href">
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.ProductId }, new {@class = "mp-back"}) |
+    @Html.ActionLink("Назад", "Index", new {}, new {@class = "mp-back"})
+</p>
+    </div>

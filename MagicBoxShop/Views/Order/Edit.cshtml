@@ -1,0 +1,40 @@
+﻿@model MagicBoxShop.Models.Order
+
+@{
+    ViewBag.Title = "Редактирование";
+}
+
+<h2>Изменение статуса заказа</h2>
+
+@using (Html.BeginForm("Edit", "Order", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+     <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            <select name="statusNew">
+                @foreach (var c in ViewBag.StatusList)
+                {
+                    
+                    if(c == Model.Status)
+                    {
+                        <option selected value="@c" >@c</option>
+                    }else
+                    {
+                        <option value="@c" >@c</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+}
+
+<div>
+    <a href="javascript:history.go(-1)" class="mp-back">Назад</a> 
+</div>

@@ -1,0 +1,17 @@
+﻿@model MagicBoxShop.Models.Comment
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Подробнее</h2>
+<div id="comment">
+    <div id="athor">@Model.Name</div>
+    <div id="date">@Model.DateCreated</div>
+    <div id="text">@Model.Text</div>
+</div>
+
+<h3>Ответить</h3>
+@{Html.RenderAction("Create", "Comment", new {id = Model.Product.ProductId});}
+
+@Html.ActionLink("Отметить как проверенный", "Edit", new { id=Model.CommentId}, new {@class = "mp-back"}) |
+@Html.ActionLink("Удалить", "Delete", new { id=Model.CommentId }, new {@class = "mp-back"})

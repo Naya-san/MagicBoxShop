@@ -1,0 +1,72 @@
+﻿ul#Tabs {
+    font-family: Verdana, Arial;
+    font-size: 12px;
+    font-weight: bold;
+    list-style-type: none;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #6B1844;
+    margin-bottom: 12px;
+}
+ 
+#Tabs li.Tab {
+    float: right;
+    height: 25px;
+    background-color: #fff7eb;
+    margin: 2px 0px 0px 5px;
+    border: 1px solid #6B1844;
+}
+ 
+#Tabs li.Tab a {
+    float: left;
+    display: block;
+    color: #666666;
+    text-decoration: none;
+    padding: 5px;
+}
+ 
+#Tabs li.Tab a:hover {
+    background-color: #f4cf6d;
+    border-bottom: 1px solid #f4cf6d;
+}
+ 
+/* Состояние: активная */
+#Tabs li.SelectedTab
+{
+    float: right;
+    height: 25px;
+    background-color: #FFEFD5;
+    margin: 2px 0px 0px 5px;
+    border-top: 1px solid #6B1844;
+    border-right: 1px solid #6B1844;
+    border-bottom: 2px solid #FFEFD5;
+    border-left: 1px solid #6B1844;
+}
+ 
+#Tabs li.SelectedTab A {
+    float: left;
+    display: block;
+    color: #666666;
+    text-decoration: none;
+    padding: 5px;
+    cursor: default;
+}
+
+#comment {
+    border-top: 1px solid #6b1844;
+    border-bottom: 1px solid #6b1844;
+    margin-bottom: 12px;
+}
+
+#author {
+    color: #671440;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#date {
+    color: #999;
+}
+
+#text {
+    font-family: 'Comic Sans MS', cursive;
+}

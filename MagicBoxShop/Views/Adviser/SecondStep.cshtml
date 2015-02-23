@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MagicBoxShop.Models.Subcategory>
+@{
+    ViewBag.Title = "Помощник";
+}
+<h2>Помощник</h2>
+<em>Давайте еще немного уточним данные</em> 
+
+    <fieldset>
+    <legend>Еще немного вопросов о получателе</legend>
+    
+    @using (Html.BeginForm("Catalog", "Adviser", FormMethod.Post))
+    {
+            @Html.ValidationSummary(true)
+            foreach (var item in Model) {
+                    <div class="editor-label">
+                        @item.Question
+                    </div>
+                   <div class="editor-field">
+                       <input type="radio" name="@item.SubcategoryId" value="yes"> Да<br>
+                       <input type="radio" name="@item.SubcategoryId" value="no"checked> Нет<br>
+                   </div>
+            }
+
+            <input type="submit" value="Готово" />
+        }
+    </fieldset>

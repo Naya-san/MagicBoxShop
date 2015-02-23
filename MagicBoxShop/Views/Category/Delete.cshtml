@@ -1,0 +1,16 @@
+﻿@model MagicBoxShop.Models.Category
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>Удалние</h2>
+
+<h3>Вы уверены, что хотите удалить категорию <strong>@Model.Name</strong>? </h3>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Вернуться к списку", "Index", new {}, new {@class = "mp-back"})
+    </p>
+}

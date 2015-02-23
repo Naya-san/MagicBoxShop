@@ -1,0 +1,37 @@
+﻿@model MagicBoxShop.Models.Category
+
+@{
+    ViewBag.Title = "Подробно";
+}
+
+<h2>Подробнее о категории</h2>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Question):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Question)
+    </div>
+    
+<div class="display-label">
+         Содержит подкатегорий:
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Subcategories.Count)
+        @Html.ActionLink("Просмотреть", "IndexСoncrete", "Subcategory", new {categoryId = Model.CategoryId}, new {@class = "mp-back"})
+    </div>
+
+<p>
+    @if (!Model.Name.Equals("Разное"))
+    {
+         @Html.ActionLink("Отредактировать", "Edit", new { id=Model.CategoryId }, new {@class = "mp-back"}) <text>|</text>
+    }
+    @Html.ActionLink("Назад", "Index", new {}, new {@class = "mp-back"})
+</p>
